@@ -12,6 +12,8 @@ target/
 *.iml
 *.ipr
 
+documents/.obsidian
+
 ### Eclipse ###
 .apt_generated
 .classpath
