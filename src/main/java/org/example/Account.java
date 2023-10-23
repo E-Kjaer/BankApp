@@ -79,4 +79,36 @@ public class Account {
             System.out.println("Error: Deposit amount must be greater than 0");
         }
     }
+
+    public void addTransaction(Transaction transaction) {
+        if (this.transactions.contains(transaction)) {
+            System.out.println("Error: Transaction already exists.");
+        } else {
+            this.transactions.add(transaction);
+        }
+    }
+
+    public void deleteTransaction(int id) {
+        for (Transaction transaction : this.transactions) {
+            if (transaction.getId() == id) {
+                this.transactions.remove(transaction);
+                return;
+            }
+        }
+        System.out.println("Error: Transaction not found");
+    }
+
+    public void updateTransaction(Transaction updatedTransaction) {
+        for (Transaction transaction : this.transactions) {
+            if (transaction.getId() == updatedTransaction.getId()) {
+                transaction = updatedTransaction;
+                return;
+            }
+        }
+        System.out.println("Error: Transaction not found");
+    }
+
+    public boolean equals(Account account) {
+        return this.id == account.getId();
+    }
 }

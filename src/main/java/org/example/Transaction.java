@@ -51,4 +51,8 @@ public class Transaction {
     public static int getCount() {
         return count;
     }
+
+    public boolean equals(Transaction transaction) {
+        return this.id == transaction.getId();
+    }
 }

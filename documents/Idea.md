@@ -1,6 +1,6 @@
 
 Idea: A backend application that can store information about users, 
-transactions.
+accounts, transactions.
 
 #### Functional requirements
 
@@ -47,39 +47,50 @@ transactions.
 
 #### CRC cards
 
-| User                           |               |
-| ------------------------------ | ------------- |
-| Responsibility                 | Collaborators |
-| - name: String                 | Account       |
-| - email: String                |               |
-| - id: int                      |               |
-| - accounts: ArrayList(Account) |               |
-| - password: String             |               |
-| - count: int                   |               |
+| User                                      |               |
+| ----------------------------------------- | ------------- |
+| Responsibility                            | Collaborators |
+| - name: String                            | Account       |
+| - email: String                           |               |
+| - id: int                                 |               |
+| - accounts: ArrayList(Account)            |               |
+| - password: String                        |               |
+| - count: int                              |               |
+| + addUser(ArrayList(User), User): void    |               |
+| + deleteUser(ArrayList(User), id): void   |               |
+| + updateUser(ArrayList(User), User): void |               |
 
-| Account                                |               |
-|----------------------------------------| ------------- |
-| Responsibility                         | Collaborators |
-| - balance: double                      | Transaction   |
-| - name: String                         |               |
-| - transactions: ArrayList(Transaction) |               |
-| - id: int                              |               |
-| - count: int                           |               |
-| - user: User                           |               |
-| + getBalance(): double                 |               |
-| + withdraw(double): double             |               |
-| + deposit(double): void                |               |
+| Account                                            |               |
+| -------------------------------------------------- | ------------- |
+| Responsibility                                     | Collaborators |
+| - balance: double                                  | Transaction   |
+| - name: String                                     |               |
+| - transactions: ArrayList(Transaction)             |               |
+| - id: int                                          |               |
+| - count: int                                       |               |
+| - user: User                                       |               |
+| + getBalance(): double                             |               |
+| + withdraw(double): double                         |               |
+| + deposit(double): void                            |               |
+| + addAccount(ArrayList(Account), Account): void    |               |
+| + deleteAccount(ArrayList(Account), id): void      |               |
+| + updateAccount(ArrayList(Account), Account): void |               |
 
-| Transaction           |               |
-| --------------------- | ------------- |
-| Responsibility        | Collaborators |
-| - id: int             | Account       | 
-| - count: int          |               |
-| - sender: Account     |               |
-| - reciever: Account   |               |
-| - amount: double      |               |
-| - isFinished: boolean |               |
-| + execute(): void     |               |
+
+
+| Transaction                                                    |               |
+| -------------------------------------------------------------- | ------------- |
+| Responsibility                                                 | Collaborators |
+| - id: int                                                      | Account       |
+| - count: int                                                   |               |
+| - sender: Account                                              |               |
+| - reciever: Account                                            |               |
+| - amount: double                                               |               |
+| - isFinished: boolean                                          |               |
+| + execute(): void                                              |               |
+| + addTransaction(ArrayList(Transaction), Transaction): void    |               |
+| + deleteTransaction(ArrayList(Transaction), id): void          |               |
+| + updateTransaction(ArrayList(Transaction), Transaction): void |               |
 
 | Command                      |               |
 | ---------------------------- | ------------- |

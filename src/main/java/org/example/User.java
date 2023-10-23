@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class User {
     private int id;
@@ -54,12 +53,36 @@ public class User {
         return this.accounts;
     }
 
-    public void addAccount(Account account) {
-        this.accounts.add(account);
-    }
-
     public boolean checkPassword(String password) {
         return this.password.equals(password);
+    }
+
+    public void addAccount(Account account) {
+        if (this.accounts.contains(account)) {
+            System.out.println("Error: Account already exists.");
+        } else {
+            this.accounts.add(account);
+        }
+    }
+
+    public void deleteAccount(int id) {
+        for (Account account : this.accounts) {
+            if (account.getId() == id) {
+                this.accounts.remove(account);
+                return;
+            }
+        }
+        System.out.println("Error: Account not found");
+    }
+
+    public void updateAccount(Account updatedAccount) {
+        for (Account account : this.accounts) {
+            if (account.getId() == updatedAccount.getId()) {
+                account = updatedAccount;
+                return;
+            }
+        }
+        System.out.println("Error: Account not found");
     }
 
     public boolean equals(User user) {
