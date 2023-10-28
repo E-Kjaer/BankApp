@@ -1,6 +1,7 @@
 package org.example;
 
 import com.sun.net.httpserver.HttpServer;
+import org.example.routes.Router;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
