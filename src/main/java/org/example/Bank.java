@@ -13,8 +13,29 @@ public class Bank {
         this.name = name;
     }
 
+    public Bank(int id, String name) {
+        this.users = new ArrayList<User>();
+        this.id = id;
+        this.name = name;
+    }
+
+    public Bank() {
+        this.users = new ArrayList<User>();
+        this.id = -1;
+        this.name = "";
+    }
+
     public ArrayList<User> getUsers() {
         return users;
+    }
+
+    public User getUser(int id) {
+        for (User user : users) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public int getId() {

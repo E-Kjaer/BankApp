@@ -17,7 +17,6 @@ public class Account {
         this.user = user;
         this.balance = balance;
         this.transactions = transactions;
-        this.user.addAccount(this);
     }
 
     public Account(String name, User user, double balance) {
@@ -26,7 +25,6 @@ public class Account {
         this.user = user;
         this.balance = balance;
         this.transactions = new ArrayList<Transaction>();
-        this.user.addAccount(this);
     }
 
     public Account(String name, User user) {
@@ -35,7 +33,6 @@ public class Account {
         this.user = user;
         this.balance = 0;
         this.transactions = new ArrayList<Transaction>();
-        this.user.addAccount(this);
     }
 
     public int getId() {
@@ -50,6 +47,10 @@ public class Account {
         return user;
     }
 
+    public double getBalance() {
+        return this.balance;
+    }
+
     public ArrayList<Transaction> getTransactions() {
         return transactions;
     }
@@ -58,8 +59,8 @@ public class Account {
         return count;
     }
 
-    public double getBalance() {
-        return this.balance;
+    public static void setCount(int count) {
+        Account.count = count;
     }
 
     public double withdraw(double amount) {
@@ -106,6 +107,11 @@ public class Account {
             }
         }
         System.out.println("Error: Transaction not found");
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + this.id + "; Name: " + this.name + "; Balance: " + this.balance;
     }
 
     public boolean equals(Account account) {
